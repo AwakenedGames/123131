@@ -1,0 +1,1 @@
+image steamPlaceholder = Text('{color=#f00}STEAM{/color}')
