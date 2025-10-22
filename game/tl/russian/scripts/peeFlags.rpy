@@ -1,6 +1,6 @@
 ﻿# TODO: Translation updated at 2024-11-09 01:49
 
-translate portuguese strings:
+translate russian strings:
 
     # game/scripts/peeFlags.rpy:69
     old "So, tell us how you feel about pee content."

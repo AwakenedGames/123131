@@ -1,6 +1,6 @@
 ﻿# TODO: Translation updated at 2024-11-09 01:49
 
-translate portuguese strings:
+translate russian strings:
 
     # game/scripts/defineImages.rpy:5
     old "{color=#f00}Closed for cleaning{/color}"
