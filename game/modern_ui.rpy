@@ -36,13 +36,13 @@ style main_menu_text is text:
 
 # Используем `init` с низким приоритетом, чтобы код выполнился после стандартных настроек.
 init -2 python:
-    # Определяем доступные языки.
-    config.languages = [
+    # Определяем доступные языки как обычную переменную.
+    store.available_languages = [
         ("English", None),
         ("Русский", "russian")
     ]
     # Словарь для отображения названия текущего языка в меню настроек.
-    language_names = {identifier: name for name, identifier in config.languages}
+    language_names = {identifier: name for name, identifier in store.available_languages}
 
     # Добавляем опцию "Язык" в стандартный экран настроек (современный способ для 8.x).
     config.preferences.add(
@@ -88,7 +88,7 @@ screen language_screen():
             yalign 0.5
 
             # Кнопки для каждого языка.
-            for name, identifier in config.languages:
+            for name, identifier in store.available_languages:
                 textbutton name:
                     style "menu_textbutton"
                     action Language(identifier)
