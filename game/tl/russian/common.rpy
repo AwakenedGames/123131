@@ -2401,3 +2401,7 @@ translate russian strings:
     # renpy/common/_errorhandling.rpym:673
     old "Parsing the script failed."
     new "Ошибка синтаксического анализа скрипта."
+
+    # game/scripts/language_picker.rpy
+    old "Language"
+    new "Язык"
