@@ -1,5 +1,5 @@
 
-﻿# TODO: Translation updated at 2025-10-22 20:15
+# TODO: Translation updated at 2025-10-22 20:15
 
 translate russian strings:
 

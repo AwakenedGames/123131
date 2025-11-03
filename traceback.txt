@@ -1,31 +1,32 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-After initialization, but before game start.
-Exception: Language 'russian' does not have any translations.
+While running game code:
+  File "game/scripts/language_picker.rpy", line 29, in script
+    init-1 python:
+  File "game/scripts/language_picker.rpy", line 30, in <module>
+    config.preferences.add(
+    ^^^^^^^^^^^^^^^^^^     
+Exception: config.preferences is not a known configuration variable.
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "renpy/bootstrap.py", line 376, in bootstrap
-    renpy.main.main()
-    ~~~~~~~~~~~~~~~^^
-  File "renpy/main.py", line 614, in main
-    run(restart)
-    ~~~^^^^^^^^^
-  File "renpy/main.py", line 92, in run
-    if not renpy.arguments.post_init():
-           ~~~~~~~~~~~~~~~~~~~~~~~~~^^ 
-  File "renpy/arguments.py", line 355, in post_init
-    return commands[command]()
-           ~~~~~~~~~~~~~~~~~^^
-  File "renpy/translation/extract.py", line 72, in extract_strings
-    extract_strings_core(language, args.destination, args.merge, args.force)
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/translation/extract.py", line 32, in extract_strings_core
-    raise Exception("Language %r does not have any translations." % language)
-Exception: Language 'russian' does not have any translations.
+  File "game/scripts/language_picker.rpy", line 29, in script
+    init-1 python:
+  File "renpy/ast.py", line 1187, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1260, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/scripts/language_picker.rpy", line 30, in <module>
+    config.preferences.add(
+    ^^^^^^^^^^^^^^^^^^     
+  File "renpy/defaultstore.py", line 92, in __getattr__
+    raise Exception("config.%s is not a known configuration variable." % (name))
+Exception: config.preferences is not a known configuration variable.
 
 Windows-11-10.0.26200-SP0 AMD64
 Ren'Py 8.4.1.25072401
 FutaDomWorld 0.9.8b
-Wed Oct 22 19:49:35 2025
+Mon Nov  3 16:06:00 2025

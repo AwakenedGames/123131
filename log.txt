@@ -1,4 +1,4 @@
-2025-10-22 15:21:57 UTC
+2025-11-03 11:05:51 UTC
 Windows-11-10.0.26200-SP0
 Ren'Py 8.4.1.25072401
 
@@ -6,34 +6,40 @@ FutaDomWorld
 0.9.8b
 Built at 2025-08-25 07:34:46 UTC
 
-Early init took 119 ms
-Loading error handling took 148 ms
-Loading script took 2216 ms
-Loading save slot metadata took 173 ms
-Loading persistent took 2 ms
+Early init took 75 ms
+Loading error handling took 90 ms
+Loading script took 8361 ms
+Loading save slot metadata took 150 ms
+Loading persistent took 9 ms
 Set script version to: (8, 4, 0)
- - Init at game/v080/GabbysApartment/gabbysApartmentv080.rpy:81 took 503 ms.
-Running init code took 1025 ms
-Loading analysis data took 126 ms
-Analyze and compile ATL took 309 ms
-Reloading save slot metadata took 22 ms
-Dump and make backups took 84 ms
-Cleaning cache took 0 ms
-Making clean stores took 1 ms
-Initial gc took 222 ms
+
+Full traceback:
+  File "game/scripts/language_picker.rpy", line 29, in script
+    init-1 python:
+  File "renpy/ast.py", line 1187, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1260, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/scripts/language_picker.rpy", line 30, in <module>
+    config.preferences.add(
+    ^^^^^^^^^^^^^^^^^^     
+  File "renpy/defaultstore.py", line 92, in __getattr__
+    raise Exception("config.%s is not a known configuration variable." % (name))
+Exception: config.preferences is not a known configuration variable.
+
+While running game code:
+  File "game/scripts/language_picker.rpy", line 29, in script
+    init-1 python:
+  File "game/scripts/language_picker.rpy", line 30, in <module>
+    config.preferences.add(
+    ^^^^^^^^^^^^^^^^^^     
+Exception: config.preferences is not a known configuration variable.
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 815 ms
-Init translation took 3 ms
-Cleaning stores took 1 ms
-Load screen analysis took 95 ms
-Analyze screens took 4 ms
-Save screen analysis took 0 ms
-Save pyanalysis took 0 ms
-Save bytecode took 0 ms
-Running _start took 2 ms
-Interface start took 1181 ms
+Interface start took 609 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)

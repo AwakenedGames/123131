@@ -1,8 +1,7 @@
-
-init-1 python:
+init python:
     # Set the default language if it's not already set
     if persistent.language is None:
-        persistent.language = "english" # Or your default language
+        persistent.language = "english"
 
     # Function to change the language
     def change_language(lang):
@@ -10,25 +9,32 @@ init-1 python:
         renpy.change_language(lang if lang != "english" else None)
 
 # Screen for language selection
-screen language_selection:
+screen language_selection():
     tag preferences_language
-
-    # Use the default preferences layout
-    use preferences_layout(_("Language"), help=None):
-
+    frame:
+        xalign 0.5
+        yalign 0.5
+        padding 20
         vbox:
             spacing 10
-            xalign 0.5
-            yalign 0.5
+            text _("Выберите язык") size 30
 
-            # Language selection buttons
             textbutton _("English") action Function(change_language, "english")
             textbutton _("Русский") action Function(change_language, "russian")
+            textbutton _("Закрыть") action Return()
 
-# Add "Language" to the preferences screen
-init-1 python:
-    config.preferences.add(
-        "language",
-        _("Language"),
-        "language_selection"
-    )
+# Overwrite the preferences screen to include language button
+screen preferences():
+    tag menu
+    frame:
+        xalign 0.5
+        yalign 0.5
+        padding 20
+        vbox:
+            spacing 15
+            text _("Настройки") size 30
+
+            # Other settings buttons...
+            
+            textbutton _("Язык") action Show("language_selection")
+            textbutton _("Назад") action Return()

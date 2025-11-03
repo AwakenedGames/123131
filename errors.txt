@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/tl/russian/common.rpy", line 2: expected statement.
+    ﻿
+    ^
+
+Ren'Py Version: Ren'Py 8.4.1.25072401
+Mon Nov  3 16:05:04 2025
