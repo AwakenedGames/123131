@@ -1,10 +1,8 @@
 
-transform preferences_transform:
-    yalign 0.5
+screen language():
 
-screen language_preferences():
-    # This screen will be used to display the language selection buttons.
-    # It will be added to the preferences screen.
+    tag preferences_language
+
     vbox:
         frame:
             style "pref_frame"
@@ -17,7 +15,6 @@ screen language_preferences():
             textbutton _("English") action Language(None)
             textbutton _("Русский") action Language("russian")
 
-
 init python:
-    # We add the new language screen to the preferences screen.
-    config.screens["preferences"]._add_use("language_preferences", "preferences_transform")
+    # Add a new screen to the preferences menu
+    config.preferences_screens.append(("Language", "language"))
