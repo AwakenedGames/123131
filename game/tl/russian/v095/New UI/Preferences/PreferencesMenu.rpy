@@ -81,8 +81,4 @@ translate russian strings:
     new "Отображение"
 
     old "Window"
-
     new "Окно"
-
-    old "Fullscreen"
-    new "Полноэкранный"
