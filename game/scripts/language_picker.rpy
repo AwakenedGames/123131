@@ -1,34 +1,81 @@
+# coding: utf-8
 
-init-1 python:
-    # Set the default language if it's not already set
-    if persistent.language is None:
-        persistent.language = "english" # Or your default language
+# Этот скрипт добавляет экран выбора языка в Ren'Py 8.4+
+# и интегрирует его в стандартный экран настроек.
 
-    # Function to change the language
-    def change_language(lang):
-        persistent.language = lang
-        renpy.change_language(lang if lang != "english" else None)
+# Используем `init` с низким приоритетом, чтобы наш код выполнился
+# после определения стандартных экранов Ren'Py.
+init -2 python:
 
-# Screen for language selection
-screen language_selection:
-    tag preferences_language
+    # --- Шаг 1: Конфигурация языков ---
+    # Определяем список доступных языков.
+    # Первый язык в списке будет языком по умолчанию.
+    # Формат: ("Название в меню", "идентификатор_языка")
+    # `None` используется для стандартного (английского) языка.
+    config.languages = [
+        ("English", None),
+        ("Русский", "russian")
+    ]
 
-    # Use the default preferences layout
-    use preferences_layout(_("Language"), help=None):
+    # Создадим словарь для удобного получения названия языка по его идентификатору.
+    language_names = {identifier: name for name, identifier in config.languages}
 
+    # --- Шаг 2: Интеграция в меню настроек ---
+    # Добавляем новую опцию в экран настроек.
+    # Это современный способ, заменяющий устаревший `config.preferences`.
+    config.preferences.add(
+        # Надпись для нашей опции.
+        _("Language"),
+        # Значение, которое будет отображаться рядом (текущий язык).
+        language_names.get(persistent.language, "English"),
+        # Действие при нажатии — открыть наш экран выбора языка.
+        ShowMenu("language_screen")
+    )
+
+
+# --- Шаг 3: Создание экрана выбора языка ---
+screen language_screen():
+
+    # Используем стандартный шаблон игрового меню для единообразного вида.
+    # Первый аргумент — это заголовок экрана.
+    tag menu
+    use game_menu(_("Language"), scroll="viewport"):
+
+        # Вертикальный блок для размещения кнопок.
         vbox:
-            spacing 10
+            style "menu_vbox"
             xalign 0.5
             yalign 0.5
 
-            # Language selection buttons
-            textbutton _("English") action Function(change_language, "english")
-            textbutton _("Русский") action Function(change_language, "russian")
+            # Создаем кнопки для каждого языка из нашего списка.
+            for name, identifier in config.languages:
 
-# Add "Language" to the preferences screen
-init-1 python:
-    config.preferences.add(
-        "language",
-        _("Language"),
-        "language_selection"
-    )
+                # Кнопка с названием языка.
+                textbutton name:
+                    style "menu_textbutton"
+                    action Language(identifier)
+
+                    # Подсвечиваем кнопку, если этот язык выбран в данный момент.
+                    selected (persistent.language == identifier)
+
+            # Кнопка для возврата на предыдущий экран (настройки).
+            textbutton _("Close"):
+                style "menu_textbutton"
+                action Return()
+
+
+# --- Шаг 4: Перевод строк, используемых в этом скрипте ---
+translate russian strings:
+    "Language": "Язык"
+    "Close": "Закрыть"
+    # Названия языков можно оставить как есть или перевести.
+    "English": "English"
+    "Русский": "Русский"
+
+
+# --- Шаг 5: Установка языка по умолчанию ---
+# Если `persistent.language` еще не установлен, Ren'Py автоматически
+# использует первый язык из `config.languages` (в нашем случае — английский).
+# Таким образом, эта строка гарантирует, что при первом запуске
+# переменная будет инициализирована правильно.
+default persistent.language = None
