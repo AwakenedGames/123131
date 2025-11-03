@@ -1,5 +1,4 @@
-
-﻿# TODO: Translation updated at 2025-10-22 20:15
+# TODO: Translation updated at 2025-10-22 20:15
 
 translate russian strings:
 
@@ -679,7 +678,7 @@ translate russian strings:
     old "debug voicing"
     new "debug voicing"
 
-    # renpy/common/00preferences.rpy:471
+    # renpy/common/0.0preferences.rpy:471
     old "debug voicing enable"
     new "debug voicing enable"
 
@@ -1031,7 +1030,7 @@ translate russian strings:
     old "The game data has been downloaded."
     new "The game data has been downloaded."
 
-    # renpy/common/00updater.rpy:1992
+    # renpy/common/0Gupdater.rpy:1992
     old "An error occurred when trying to download game data:"
     new "An error occurred when trying to download game data:"
 

@@ -105,17 +105,33 @@ screen language_screen():
 
 translate russian strings:
     # Главное меню
-    "New Game": "Новая игра"
-    "Continue": "Продолжить"
-    "Load": "Загрузить"
-    "Preferences": "Настройки"
-    "Quit": "Выход"
+    old "New Game"
+    new "Новая игра"
+
+    old "Continue"
+    new "Продолжить"
+
+    old "Load"
+    new "Загрузить"
+
+    old "Preferences"
+    new "Настройки"
+
+    old "Quit"
+    new "Выход"
 
     # Экран выбора языка
-    "Language": "Язык"
-    "Return": "Возврат"
-    "English": "English"
-    "Русский": "Русский"
+    old "Language"
+    new "Язык"
+
+    old "Return"
+    new "Возврат"
+
+    old "English"
+    new "English"
+
+    old "Русский"
+    new "Русский"
 
 
 # --- Шаг 5: Инициализация переменной языка ---
