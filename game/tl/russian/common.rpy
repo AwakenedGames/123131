@@ -149,7 +149,7 @@ translate russian strings:
 
     # renpy/common/00accessibility.rpy:296
     old "Return"
-    new "Return"
+    new "Возврат"
 
     # renpy/common/00accessibility.rpy:306
     old "The options on this menu are intended to improve accessibility. They may not work with all games, and some combinations of options may render the game unplayable. This is not an issue with the game or engine. For the best results when changing fonts, try to keep the text size the same as it originally was."
@@ -873,11 +873,11 @@ translate russian strings:
 
     # renpy/common/00sync.rpy:433
     old "Yes"
-    new "Yes"
+    new "Да"
 
     # renpy/common/00sync.rpy:434
     old "No"
-    new "No"
+    new "Нет"
 
     # renpy/common/00sync.rpy:457
     old "Enter Sync ID"
@@ -1129,7 +1129,7 @@ translate russian strings:
 
     # renpy/common/00gltest.rpy:178
     old "Quit"
-    new "Quit"
+    new "Выход"
 
     # renpy/common/00gltest.rpy:207
     old "Performance Warning"
